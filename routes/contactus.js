@@ -1,13 +1,10 @@
 const express = require("express");
 const path = require("path");
+const { getContact, postContact } = require("../controllers/shopcontroller.js");
 
 const route = express.Router();
 
-route.get("/contactus", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "views", "contactus.html"));
-});
-route.post("/success", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "views", "success.html"));
-});
+route.get("/contactus", getContact);
+route.post("/success", postContact);
 
 module.exports = route;
